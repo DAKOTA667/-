@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دردشة متكاملة</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- شاشة إدخال الاسم -->
+    <div id="login-screen">
+        <h2>مرحبًا بك في الدردشة!</h2>
+        <p>يرجى إدخال اسمك للمتابعة:</p>
+        <input type="text" id="username-input" placeholder="أدخل اسمك">
+        <button onclick="enterChat()">دخول</button>
+    </div>
+
+    <!-- واجهة الدردشة -->
+    <div id="chat-container" class="container" style="display: none;">
+
+        <!-- صندوق الدردشة -->
+        <div class="chat-box-container">
+            <div class="admin-controls" id="admin-controls" style="display: none;">
+                <button onclick="clearChat()">🗑 مسح الشات</button>
+                <button onclick="banAllUsers()">🚫 حظر الكل</button>
+            </div>
+
+            <div class="chat-box" id="chat-box"></div>
+
+            <div class="input-area">
+                <input type="text" id="message" placeholder="اكتب رسالتك...">
+                <button onclick="sendMessage()">إرسال</button>
+            </div>
+        </div>
+
+        <!-- قائمة المستخدمين (على الجهة اليمنى) -->
+        <div class="user-list" id="user-list-container">
+            <h3>المتصلون</h3>
+            <div class="profile-controls">
+                <label for="profile-pic">📷 إضافة صورة</label>
+                <input type="file" id="profile-pic" accept="image/*" onchange="uploadProfilePic()">
+                <button onclick="removeProfilePic()">🗑 حذف الصورة</button>
+            </div>
+            <ul id="user-list"></ul>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
